@@ -36,7 +36,7 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
     private final String TAG = getClass().getName();
 
     private static final String ANDROIDNS = "http://schemas.android.com/apk/res/android";
-    private static final String SETTINGS = "http://schemas.android.com/apk/res/com.android.settings";
+    private static final String SETTINGS = "http://schemas.android.com/apk/lib/res/org.omnirom.omnilib";
     private static final int DEFAULT_VALUE = 50;
 
     private int mMaxValue      = 100;
