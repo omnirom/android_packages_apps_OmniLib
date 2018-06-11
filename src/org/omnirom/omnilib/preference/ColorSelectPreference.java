@@ -41,6 +41,7 @@ public class ColorSelectPreference extends Preference implements DialogInterface
     private Dialog mDialog;
 
     private boolean mShowLedPreview;
+    private boolean mWithAlpha;
 
     /**
      * @param context
@@ -68,6 +69,7 @@ public class ColorSelectPreference extends Preference implements DialogInterface
         setLayoutResource(R.layout.preference_color_select);
         mResources = getContext().getResources();
         mShowLedPreview = attrs.getAttributeBooleanValue(null, "ledPreview", false);
+        mWithAlpha = attrs.getAttributeBooleanValue(null, "withAlpha", false);
     }
 
     public void setColor(int color) {
@@ -108,7 +110,7 @@ public class ColorSelectPreference extends Preference implements DialogInterface
 
     public Dialog getDialog() {
         final ColorSelectDialog d = new ColorSelectDialog(getContext(),
-                0xFF000000 | mColorValue, mShowLedPreview);
+                0xFF000000 | mColorValue, mShowLedPreview, mWithAlpha);
 
         d.setButton(AlertDialog.BUTTON_POSITIVE, mResources.getString(R.string.ok),
                 new DialogInterface.OnClickListener() {
@@ -146,5 +148,13 @@ public class ColorSelectPreference extends Preference implements DialogInterface
     @Override
     public void onDismiss(DialogInterface dialog) {
         mDialog = null;
+    }
+
+    public void setWithAlpha(boolean value) {
+        mWithAlpha = value;
+    }
+
+    public void setWithLedPreview(boolean value) {
+        mShowLedPreview = value;
     }
 }
