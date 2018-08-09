@@ -19,7 +19,10 @@ package org.omnirom.omnilib.preference;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
+import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothAdapter;
+import android.content.Context;
+import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,33 +32,38 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import org.omnirom.omnilib.actions.OmniAction;
-import org.omnirom.omnilib.actions.OmniActionsInflate;
-
 import org.omnirom.omnilib.R;
+
 import com.android.settingslib.CustomDialogPreference;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
-public class OmniActionsListPreference extends CustomDialogPreference {
-    private static final String TAG = "OmniActionsList";
-    private static final boolean DEBUG = true;
+import org.omnirom.omnilib.R;
 
-    private ArrayList<OmniAction> oActionInfoList;
-    private ActionListAdapter mAdapter;
+import com.android.settingslib.CustomDialogPreference;
+
+public class BTPairedDevicesListPreference extends CustomDialogPreference {
     private List<String> mValues = new ArrayList<String>();
-    private Context mContext;
+    private final List<DeviceItem> mDeviceItemList = new ArrayList<DeviceItem>();
 
-    public OmniActionsListPreference(Context context) {
+    public BTPairedDevicesListPreference(Context context) {
         this(context, null);
     }
 
-    public OmniActionsListPreference(Context context, AttributeSet attrs) {
+    public BTPairedDevicesListPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
-        setDialogLayoutResource(R.layout.preference_action_list);
-        mContext = context;
+        setDialogLayoutResource(R.layout.preference_bt_devices_list);
+
+        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
+        for (BluetoothDevice bt : pairedDevices) {
+            mDeviceItemList.add(new DeviceItem(bt.getName()));
+        }
+        Collections.sort(mDeviceItemList);
+
         setPositiveButtonText(R.string.action_save);
         setNegativeButtonText(android.R.string.cancel);
     }
@@ -69,22 +77,12 @@ public class OmniActionsListPreference extends CustomDialogPreference {
         return mValues;
     }
 
-    public boolean loadActions(int xml_id) {
-        try {
-            oActionInfoList = OmniActionsInflate.inflate(mContext, xml_id);
-        } catch (Exception e) {
-            if (DEBUG) Log.e(TAG, "Load omni actions ", e);
-            return false;
-        }
-        return true;
-    }
-
     @Override
     protected void onBindDialogView(View view) {
         super.onBindDialogView(view);
 
-        mAdapter = new ActionListAdapter(getContext());
-        final ListView listView = (ListView) view.findViewById(R.id.action_list);
+        mAdapter = new DeviceListAdapter(getContext());
+        final ListView listView = (ListView) view.findViewById(R.id.device_list);
         listView.setAdapter(mAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -93,12 +91,12 @@ public class OmniActionsListPreference extends CustomDialogPreference {
                 final boolean isChecked = !holder.checkBox.isChecked();
 
                 holder.checkBox.setChecked(isChecked);
-                OmniAction info = mAdapter.getItem(position);
+                DeviceItem info = mAdapter.getItem(position);
 
                 if (isChecked) {
-                    mValues.add(info.key);
+                    mValues.add(info.mValue);
                 } else {
-                    mValues.remove(info.key);
+                    mValues.remove(info.mValue);
                 }
             }
         });
@@ -112,45 +110,72 @@ public class OmniActionsListPreference extends CustomDialogPreference {
         }
     }
 
-    public class ActionListAdapter extends ArrayAdapter<OmniAction> {
+    public class DeviceItem implements Comparable<DeviceItem> {
+        public final String mName;
+
+        DeviceItem(String value) {
+            mName = value;
+        }
+
+        @Override
+        public int compareTo(DeviceItem another) {
+            return mName.toUpperCase().compareTo(another.mName.toUpperCase());
+        }
+
+        @Override
+        public int hashCode() {
+            return mName.hashCode();
+        }
+
+        @Override
+        public boolean equals(Object another) {
+            if (another == null || !(another instanceof DeviceItem)) {
+                return false;
+            }
+            return mName.equals(((DeviceItem) another).mName);
+        }
+    }
+
+
+    public class DeviceListAdapter extends ArrayAdapter<DeviceItem> {
         private final LayoutInflater mInflater;
 
-        public ActionListAdapter(Context context) {
+        public DeviceListAdapter(Context context) {
             super(context, 0);
             mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            addAll(oActionInfoList);
+            addAll(mDeviceItemList);
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             AppViewHolder holder = AppViewHolder.createOrRecycle(mInflater, convertView);
             convertView = holder.rootView;
-            OmniAction info = getItem(position);
-            holder.title.setText(info.title);
-            holder.checkBox.setChecked(mValues.contains(info.key));
+            DeviceItem info = getItem(position);
+            holder.deviceName.setText(info.mName);
+            holder.checkBox.setChecked(mValues.contains(info.mName));
             return convertView;
         }
 
         @Override
-        public OmniAction getItem(int position) {
-            return oActionInfoList.get(position);
+        public DeviceItem getItem(int position) {
+            return mDeviceItemList.get(position);
         }
     }
 
     public static class AppViewHolder {
         public View rootView;
-        public TextView title;
+        public TextView deviceName;
         public CheckBox checkBox;
 
         public static AppViewHolder createOrRecycle(LayoutInflater inflater, View convertView) {
             if (convertView == null) {
-                convertView = inflater.inflate(R.layout.action_item, null);
+                convertView = inflater.inflate(R.layout.bt_device_item, null);
 
                 // Creates a ViewHolder and store references to the two children views
                 // we want to bind data to.
                 AppViewHolder holder = new AppViewHolder();
                 holder.rootView = convertView;
-                holder.title = (TextView) convertView.findViewById(R.id.action_title);
+                holder.deviceName = (TextView) convertView.findViewById(R.id.device_name);
                 holder.checkBox = (CheckBox) convertView.findViewById(android.R.id.checkbox);
                 convertView.setTag(holder);
                 return holder;
@@ -162,4 +187,3 @@ public class OmniActionsListPreference extends CustomDialogPreference {
         }
     }
 }
-
