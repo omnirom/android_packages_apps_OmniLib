@@ -16,6 +16,8 @@
  -->
 
 <resources>
+    <dimen name="floating_widget_view_padding">10dp</dimen>
+    <dimen name="floating_widget_window_padding">10dp</dimen>
     <dimen name="alert_dialog_padding_material">20dp</dimen>
     <dimen name="color_preference_width">18dip</dimen>
     <dimen name="color_preference_height">18dip</dimen>
