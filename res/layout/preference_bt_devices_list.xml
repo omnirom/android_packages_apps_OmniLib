@@ -3,7 +3,7 @@
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
-  the Free Software Foundation, either version 3 of the License, or
+  the Free Software Foundation, either version 2 of the License, or
   (at your option) any later version.
 
   This program is distributed in the hope that it will be useful,
@@ -15,10 +15,17 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -->
 
-<resources>
-    <dimen name="floating_widget_view_padding">10dp</dimen>
-    <dimen name="floating_widget_window_padding">10dp</dimen>
-    <dimen name="alert_dialog_padding_material">20dp</dimen>
-    <dimen name="color_preference_width">18dip</dimen>
-    <dimen name="color_preference_height">18dip</dimen>
-</resources>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/alert_dialog_padding_material"
+    android:paddingEnd="@dimen/alert_dialog_padding_material">
+
+    <ListView
+        android:id="@+id/device_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@null" />
+</LinearLayout>
