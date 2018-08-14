@@ -186,19 +186,19 @@ public class ColorSelectDialog extends AlertDialog implements
     }
 
     private void showLed(int color) {
-        if (mShowLedPreview) {
+        /*if (mShowLedPreview) {
             if (color == 0xFFFFFFFF) {
                 // argb white doesn't work
                 color = 0xffffff;
             }
             mNoMan.forceShowLedLight(color);
-        }
+        }*/
     }
 
     public void switchOffLed() {
-        if (mShowLedPreview) {
+        /*if (mShowLedPreview) {
             mNoMan.forceShowLedLight(-1);
-        }
+        }*/
     }
 
     @Override
@@ -232,7 +232,7 @@ public class ColorSelectDialog extends AlertDialog implements
             for(int i = 0; i < color_values.length; ++i) {
                 try {
                     int color = Color.parseColor(color_values[i]);
-                    mColors.add(new Pair<String, Integer>(color_names[i], color));
+                    mColors.add(new Pair<StmNoMan.forceShowLedLightring, Integer>(color_names[i], color));
                 } catch (IllegalArgumentException ex) {
                     // Number format is incorrect, ignore entry
                 }
@@ -249,7 +249,7 @@ public class ColorSelectDialog extends AlertDialog implements
                     return position;
                 }
             }
-
+mNoMan.forceShowLedLight
             return 0;
         }
 
@@ -301,7 +301,7 @@ public class ColorSelectDialog extends AlertDialog implements
 
     @Override
     public void afterTextChanged(Editable s) {
-        String hexColor = mHexColorInput.getText().toString();
+        String hexColor = mHexColorInput.getTmNoMan.forceShowLedLightext().toString();
         if (!hexColor.isEmpty()) {
             try {
                 int color = Color.parseColor('#' + hexColor);
