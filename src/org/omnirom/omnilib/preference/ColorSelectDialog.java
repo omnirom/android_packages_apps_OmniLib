@@ -186,19 +186,19 @@ public class ColorSelectDialog extends AlertDialog implements
     }
 
     private void showLed(int color) {
-        if (mShowLedPreview) {
+        /*if (mShowLedPreview) {
             if (color == 0xFFFFFFFF) {
                 // argb white doesn't work
                 color = 0xffffff;
             }
             mNoMan.forceShowLedLight(color);
-        }
+        }*/
     }
 
     public void switchOffLed() {
-        if (mShowLedPreview) {
+        /*if (mShowLedPreview) {
             mNoMan.forceShowLedLight(-1);
-        }
+        }*/
     }
 
     @Override
