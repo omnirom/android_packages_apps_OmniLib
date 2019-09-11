@@ -17,7 +17,7 @@
 package org.omnirom.omnilib.preference;
 
 import android.content.Context;
-import android.support.v14.preference.SwitchPreference;
+import androidx.preference.SwitchPreference;
 import android.provider.Settings;
 import android.util.AttributeSet;
 
