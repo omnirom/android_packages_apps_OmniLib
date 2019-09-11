@@ -18,8 +18,8 @@
 package org.omnirom.omnilib.fragments;
 
 import android.app.DialogFragment;
-import android.support.v14.preference.PreferenceFragment;
-import android.support.v7.preference.Preference;
+import androidx.preference.PreferenceFragment;
+import androidx.preference.Preference;
 
 import com.android.settingslib.CustomDialogPreference;
 
