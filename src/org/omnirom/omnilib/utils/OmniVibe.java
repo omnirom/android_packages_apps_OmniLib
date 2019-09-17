@@ -65,7 +65,7 @@ public class OmniVibe{
             .build();
         Vibrator mVibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
         if (mVibrator.hasVibrator()){
-            mVibrator.vibrate(owningUid, owningPackage, effect, VIBRATION_ATTRIBUTES);
+            //mVibrator.vibrate(owningUid, owningPackage, effect, VIBRATION_ATTRIBUTES);
         }
         return true;
     }
