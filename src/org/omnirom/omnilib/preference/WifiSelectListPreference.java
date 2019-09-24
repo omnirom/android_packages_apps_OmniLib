@@ -34,7 +34,7 @@ import com.android.settingslib.wifi.AccessPoint;
 import com.android.settingslib.wifi.WifiSavedConfigUtils;
 
 import org.omnirom.omnilib.R;
-import com.android.settingslib.CustomDialogPreference;
+import com.android.settingslib.CustomDialogPreferenceCompat;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -42,7 +42,7 @@ import java.util.List;
 import java.util.Comparator;
 import java.util.Collections;
 
-public class WifiSelectListPreference extends CustomDialogPreference {
+public class WifiSelectListPreference extends CustomDialogPreferenceCompat {
     private List<AccessPoint> mAPInfoList;
     private ActionListAdapter mAdapter;
     private List<String> mValues = new ArrayList<String>();

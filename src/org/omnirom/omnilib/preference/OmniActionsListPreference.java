@@ -33,13 +33,13 @@ import org.omnirom.omnilib.actions.OmniAction;
 import org.omnirom.omnilib.actions.OmniActionsInflate;
 
 import org.omnirom.omnilib.R;
-import com.android.settingslib.CustomDialogPreference;
+import com.android.settingslib.CustomDialogPreferenceCompat;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class OmniActionsListPreference extends CustomDialogPreference {
+public class OmniActionsListPreference extends CustomDialogPreferenceCompat {
     private static final String TAG = "OmniActionsList";
     private static final boolean DEBUG = true;
 

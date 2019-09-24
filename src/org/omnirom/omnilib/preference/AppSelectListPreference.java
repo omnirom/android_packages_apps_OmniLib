@@ -46,10 +46,10 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.android.settingslib.CustomDialogPreference;
+import com.android.settingslib.CustomDialogPreferenceCompat;
 import org.omnirom.omnilib.R;
 
-public class AppSelectListPreference extends CustomDialogPreference {
+public class AppSelectListPreference extends CustomDialogPreferenceCompat {
 
     private static String TAG = "AppSelectListPreference";
     public static final String DISABLED_ENTRY = "disabled";
@@ -330,10 +330,10 @@ public class AppSelectListPreference extends CustomDialogPreference {
     }
 
     public static class AppSelectListPreferenceDialogFragment
-            extends CustomDialogPreference.CustomPreferenceDialogFragment {
-        public static CustomDialogPreference.CustomPreferenceDialogFragment
+            extends CustomDialogPreferenceCompat.CustomPreferenceDialogFragment {
+        public static CustomDialogPreferenceCompat.CustomPreferenceDialogFragment
                 newInstance(String key) {
-            return CustomDialogPreference.CustomPreferenceDialogFragment.newInstance(key);
+            return CustomDialogPreferenceCompat.CustomPreferenceDialogFragment.newInstance(key);
         }
     }
 }
