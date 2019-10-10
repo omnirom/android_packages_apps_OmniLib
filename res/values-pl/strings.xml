@@ -17,4 +17,13 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="action_save">Zapisz</string>
+    <string name="disabled_entry">Wyłączony</string>
+    <string name="profile_choose_app">Wybierz aplikację</string>
+    <string name="not_ready_summary">Rozwiązywanie...</string>
+    <string name="resolve_failed_summary">Rozpoznawanie aplikacji nie powiodło się</string>
+    <string name="choose_app">Wybierz aplikację</string>
+    <string name="led_color_green">Zielony</string>
+    <string name="led_color_red">Czerwony</string>
+</resources>

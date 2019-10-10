@@ -17,4 +17,11 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="action_save">Tallenna</string>
+    <string name="disabled_entry">Pois käytöstä</string>
+    <string name="profile_choose_app">Valitse sovellus</string>
+    <string name="choose_app">Valitse sovellus</string>
+    <string name="led_color_green">Vihreä</string>
+    <string name="led_color_red">Punainen</string>
+</resources>

@@ -18,12 +18,12 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="action_save">儲存</string>
-  <string name="disabled_entry">已關閉</string>
-  <string name="profile_choose_app">選擇應用程式</string>
-  <string name="not_ready_summary">處理中...</string>
-  <string name="resolve_failed_summary">應用程式處理失敗</string>
-  <string name="choose_app">選擇應用程式</string>
-  <string name="led_color_green">綠色</string>
-  <string name="led_color_red">紅色</string>
+    <string name="action_save">儲存</string>
+    <string name="disabled_entry">已關閉</string>
+    <string name="profile_choose_app">選擇應用程式</string>
+    <string name="not_ready_summary">處理中...</string>
+    <string name="resolve_failed_summary">應用程式處理失敗</string>
+    <string name="choose_app">選擇應用程式</string>
+    <string name="led_color_green">綠色</string>
+    <string name="led_color_red">紅色</string>
 </resources>

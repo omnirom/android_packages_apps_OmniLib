@@ -18,12 +18,12 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="action_save">Сохранить</string>
-  <string name="disabled_entry">Отключено</string>
-  <string name="profile_choose_app">Выбрать приложение</string>
-  <string name="not_ready_summary">Получение разрешения...</string>
-  <string name="resolve_failed_summary">Ошибка получения разрешения приложения</string>
-  <string name="choose_app">Выбрать приложение</string>
-  <string name="led_color_green">Зелёный</string>
-  <string name="led_color_red">Красный</string>
+    <string name="action_save">Сохранить</string>
+    <string name="disabled_entry">Отключено</string>
+    <string name="profile_choose_app">Выбрать приложение</string>
+    <string name="not_ready_summary">Получение разрешения...</string>
+    <string name="resolve_failed_summary">Ошибка получения разрешения приложения</string>
+    <string name="choose_app">Выбрать приложение</string>
+    <string name="led_color_green">Зелёный</string>
+    <string name="led_color_red">Красный</string>
 </resources>
