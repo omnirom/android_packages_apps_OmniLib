@@ -1,0 +1,18 @@
+android_library {
+    name: "OmniLib",
+    defaults: [
+        "SettingsLibDefaults",
+        "SettingsLib-search-defaults",
+    ],
+    platform_apis: true,
+    srcs: ["src/**/*.java"],
+    required: [
+        "privapp_whitelist_com.android.settings",
+        "settings-platform-compat-config",
+    ],
+    libs: [
+        "androidx.core_core",
+        "androidx.preference_preference",
+    ],
+    resource_dirs: ["res"],
+}
