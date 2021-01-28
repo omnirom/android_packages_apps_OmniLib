@@ -55,17 +55,10 @@ public class OmniVibe{
             return false;
         }
 
-        int owningUid;
-        String owningPackage;
-        owningUid = android.os.Process.myUid();
-        owningPackage = mContext.getOpPackageName();
-        final AudioAttributes VIBRATION_ATTRIBUTES = new AudioAttributes.Builder()
-            .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-            .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
-            .build();
         Vibrator mVibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
         if (mVibrator.hasVibrator()){
-            //mVibrator.vibrate(owningUid, owningPackage, effect, VIBRATION_ATTRIBUTES);
+            mVibrator.vibrate(VibrationEffect.createOneShot(50,
+                        VibrationEffect.DEFAULT_AMPLITUDE));
         }
         return true;
     }
