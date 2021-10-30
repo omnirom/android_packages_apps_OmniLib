@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2018 The OmniROM Project
+ *  Copyright (C) 2021 The OmniROM Project
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,7 +26,6 @@ import android.os.Vibrator;
 import android.provider.Settings;
 import android.provider.Settings.Global;
 import android.view.HapticFeedbackConstants;
-//import com.android.internal.util.omni.DeviceUtils;
 
 public class OmniVibe{
 
