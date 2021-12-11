@@ -16,8 +16,6 @@
 
 package org.omnirom.omnilib.preference;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Resources;
@@ -30,6 +28,8 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AlertDialog;
+
 import org.omnirom.omnilib.R;
 
 public class ColorSelectPreference extends Preference implements DialogInterface.OnDismissListener {
@@ -40,7 +40,7 @@ public class ColorSelectPreference extends Preference implements DialogInterface
     private ImageView mLightColorView;
     private Resources mResources;
     private int mColorValue;
-    private Dialog mDialog;
+    private AlertDialog mDialog;
 
     private boolean mShowLedPreview;
     private boolean mShowMultiColor;
@@ -131,7 +131,7 @@ public class ColorSelectPreference extends Preference implements DialogInterface
         mDialog.show();
     }
 
-    public Dialog getDialog() {
+    public AlertDialog getDialog() {
         final ColorSelectDialog d = new ColorSelectDialog(getContext(),
                 0xFF000000 | mColorValue, mShowMultiColor, mShowLedPreview, mWithAlpha);
 

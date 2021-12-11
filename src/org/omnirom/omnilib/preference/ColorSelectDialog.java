@@ -18,7 +18,6 @@
 package org.omnirom.omnilib.preference;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.graphics.Color;
@@ -42,6 +41,8 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
 
 import org.omnirom.omnilib.R;
 import org.omnirom.omnilib.ui.ColorPanelView;
