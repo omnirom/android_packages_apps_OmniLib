@@ -32,6 +32,12 @@
         <attr name="withAlpha" format="boolean" />
     </declare-styleable>
 
+    <declare-styleable name="SystemSettingsColorSelectPreference">
+        <attr name="ledPreview" format="boolean" />
+        <attr name="multiColor" format="boolean" />
+        <attr name="withAlpha" format="boolean" />
+    </declare-styleable>
+
     <declare-styleable name="SecureSettingsSwitch">
         <attr name="initialValue" format="integer" />
     </declare-styleable>

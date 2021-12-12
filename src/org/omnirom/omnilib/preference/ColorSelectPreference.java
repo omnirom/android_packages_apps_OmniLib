@@ -39,7 +39,7 @@ public class ColorSelectPreference extends Preference implements DialogInterface
 
     private ImageView mLightColorView;
     private Resources mResources;
-    private int mColorValue;
+    protected int mColorValue;
     private AlertDialog mDialog;
 
     private boolean mShowLedPreview;
@@ -68,7 +68,7 @@ public class ColorSelectPreference extends Preference implements DialogInterface
         init(context, attrs);
     }
 
-    private void init(Context context, AttributeSet attrs) {
+    protected void init(Context context, AttributeSet attrs) {
         setLayoutResource(R.layout.preference_color_select);
         mResources = getContext().getResources();
         if (attrs != null) {
@@ -139,14 +139,15 @@ public class ColorSelectPreference extends Preference implements DialogInterface
                 new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                int color = 0;
                 if (mShowLedPreview) {
-                    mColorValue =  d.getColor() & 0x00FFFFFF; // strip alpha, led does not support it
+                    color =  d.getColor() & 0x00FFFFFF; // strip alpha, led does not support it
                     d.switchOffLed();
                 } else {
-                    mColorValue =  d.getColor();
+                    color =  d.getColor();
                 }
-                updatePreferenceViews();
-                callChangeListener(new Integer(mColorValue));
+                setColor(color);
+                callChangeListener(new Integer(color));
             }
         });
         d.setButton(AlertDialog.BUTTON_NEGATIVE, mResources.getString(android.R.string.cancel),
