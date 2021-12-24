@@ -19,6 +19,8 @@ package org.omnirom.omnilib.utils;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.UserHandle;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -30,6 +32,7 @@ import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.SystemClock;
 import android.os.Vibrator;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.InputDevice;
 import android.view.KeyCharacterMap;
@@ -157,5 +160,22 @@ public class OmniUtils {
         Canvas canvas = new Canvas(dest);
         canvas.drawBitmap(source, null, targetRect, null);
         return dest;
+    }
+
+    public static int getQSColumnsCount(Context context, int resourceCount) {
+        final Resources res = context.getResources();
+        if (res.getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            return Settings.System.getIntForUser(
+                    context.getContentResolver(), "qs_layout_columns",
+                    resourceCount, UserHandle.USER_CURRENT);
+        } else {
+            return Settings.System.getIntForUser(
+                    context.getContentResolver(), "qs_layout_columns_landscape",
+                    resourceCount, UserHandle.USER_CURRENT);
+        }
+    }
+
+    public static int getQuickQSColumnsCount(Context context, int resourceCount) {
+        return getQSColumnsCount(context, resourceCount);
     }
 }
