@@ -83,8 +83,8 @@ public class OmniJawsClient {
             "icon_pack"
     };
 
-    private static final String WEATHER_UPDATE = "org.omnirom.omnijaws.WEATHER_UPDATE";
-    private static final String WEATHER_ERROR = "org.omnirom.omnijaws.WEATHER_ERROR";
+    private static final String WEATHER_UPDATE = SERVICE_PACKAGE + ".WEATHER_UPDATE";
+    private static final String WEATHER_ERROR = SERVICE_PACKAGE + ".WEATHER_ERROR";
 
     private static final DecimalFormat sNoDigitsFormat = new DecimalFormat("0");
 
@@ -157,41 +157,16 @@ public class OmniJawsClient {
     private boolean mMetric;
     private List<OmniJawsObserver> mObserver;
     private WeatherUpdateReceiver mReceiver;
-    private Handler mHandler = new Handler();
 
     public OmniJawsClient(Context context) {
         mContext = context;
         mObserver = new ArrayList<OmniJawsObserver>();
     }
 
-    public OmniJawsClient(Context context, boolean settingsObserver) {
-        mContext = context;
-        mObserver = new ArrayList<OmniJawsObserver>();
-    }
-
-    public void cleanupObserver() {
-        if (mReceiver != null) {
-            try {
-                mContext.unregisterReceiver(mReceiver);
-            } catch (Exception e) {
-            }
-            mReceiver = null;
-        }
-    }
-
-    public void updateWeather() {
-        if (isOmniJawsServiceInstalled()) {
-            Intent updateIntent = new Intent(Intent.ACTION_MAIN)
-                    .setClassName(SERVICE_PACKAGE, SERVICE_PACKAGE + ".WeatherService");
-            updateIntent.setAction(SERVICE_PACKAGE + ".ACTION_UPDATE");
-            mContext.startService(updateIntent);
-        }
-    }
-
     public Intent getSettingsIntent() {
         if (isOmniJawsServiceInstalled()) {
             Intent settings = new Intent(Intent.ACTION_MAIN)
-                    .setClassName("org.omnirom.omnijaws", "org.omnirom.omnijaws.SettingsActivity");
+                    .setClassName(SERVICE_PACKAGE, SERVICE_PACKAGE + ".SettingsActivity");
             return settings;
         }
         return null;
@@ -200,7 +175,7 @@ public class OmniJawsClient {
     public Intent getWeatherActivityIntent() {
         if (isOmniJawsServiceInstalled()) {
             Intent settings = new Intent(Intent.ACTION_MAIN)
-                    .setClassName("org.omnirom.omnijaws", "org.omnirom.omnijaws.WeatherActivity");
+                    .setClassName(SERVICE_PACKAGE, SERVICE_PACKAGE + ".WeatherActivity");
             return settings;
         }
         return null;
@@ -405,18 +380,6 @@ public class OmniJawsClient {
         return false;
     }
 
-    public void setOmniJawsEnabled(boolean value) {
-        if (isOmniJawsServiceInstalled()) {
-            // check first time enablement and redirect to settings
-            // cause we need to enable gps for it
-            Intent updateIntent = new Intent(Intent.ACTION_MAIN)
-                    .setClassName(SERVICE_PACKAGE, SERVICE_PACKAGE + ".WeatherService");
-            updateIntent.setAction(SERVICE_PACKAGE + ".ACTION_ENABLE");
-            updateIntent.putExtra("enable", value);
-            mContext.startService(updateIntent);
-        }
-    }
-
     public boolean isOmniJawsSetupDone() {
         if (!isOmniJawsServiceInstalled()) {
             return false;
@@ -480,6 +443,7 @@ public class OmniJawsClient {
             IntentFilter filter = new IntentFilter();
             filter.addAction(WEATHER_UPDATE);
             filter.addAction(WEATHER_ERROR);
+            if (DEBUG) Log.d(TAG, "registerReceiver");
             mContext.registerReceiver(mReceiver, filter);
         }
         mObserver.add(observer);
@@ -489,6 +453,7 @@ public class OmniJawsClient {
         mObserver.remove(observer);
         if (mObserver.size() == 0 && mReceiver != null) {
             try {
+                if (DEBUG) Log.d(TAG, "unregisterReceiver");
                 mContext.unregisterReceiver(mReceiver);
             } catch (Exception e) {
             }
