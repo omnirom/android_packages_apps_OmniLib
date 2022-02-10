@@ -164,11 +164,6 @@ public class OmniJawsClient {
         mObserver = new ArrayList<OmniJawsObserver>();
     }
 
-    public OmniJawsClient(Context context, boolean settingsObserver) {
-        mContext = context;
-        mObserver = new ArrayList<OmniJawsObserver>();
-    }
-
     public void cleanupObserver() {
         if (mReceiver != null) {
             try {
@@ -176,15 +171,6 @@ public class OmniJawsClient {
             } catch (Exception e) {
             }
             mReceiver = null;
-        }
-    }
-
-    public void updateWeather() {
-        if (isOmniJawsServiceInstalled()) {
-            Intent updateIntent = new Intent(Intent.ACTION_MAIN)
-                    .setClassName(SERVICE_PACKAGE, SERVICE_PACKAGE + ".WeatherService");
-            updateIntent.setAction(SERVICE_PACKAGE + ".ACTION_UPDATE");
-            mContext.startService(updateIntent);
         }
     }
 
@@ -403,18 +389,6 @@ public class OmniJawsClient {
             Log.e(TAG, "isOmniJawsEnabled", e);
         }
         return false;
-    }
-
-    public void setOmniJawsEnabled(boolean value) {
-        if (isOmniJawsServiceInstalled()) {
-            // check first time enablement and redirect to settings
-            // cause we need to enable gps for it
-            Intent updateIntent = new Intent(Intent.ACTION_MAIN)
-                    .setClassName(SERVICE_PACKAGE, SERVICE_PACKAGE + ".WeatherService");
-            updateIntent.setAction(SERVICE_PACKAGE + ".ACTION_ENABLE");
-            updateIntent.putExtra("enable", value);
-            mContext.startService(updateIntent);
-        }
     }
 
     public boolean isOmniJawsSetupDone() {
