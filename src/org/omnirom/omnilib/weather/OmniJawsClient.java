@@ -324,18 +324,6 @@ public class OmniJawsClient {
     }
 
     public Drawable getWeatherConditionImage(int conditionCode) {
-        if (!isOmniJawsEnabled()) {
-            Log.w(TAG, "Requesting condition image while disabled");
-            return getDefaultConditionImage();
-        }
-        if (!isAvailableApp(mPackageName)) {
-            Log.w(TAG, "Icon pack no longer available - loading default " + mPackageName);
-            loadDefaultIconsPackage();
-        }
-        if (mRes == null) {
-            Log.w(TAG, "Requesting condition image while disabled");
-            return getDefaultConditionImage();
-        }
         try {
             int resId = mRes.getIdentifier(mIconPrefix + "_" + conditionCode, "drawable", mPackageName);
             Drawable d = mRes.getDrawable(resId);
