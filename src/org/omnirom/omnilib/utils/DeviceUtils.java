@@ -132,4 +132,10 @@ public class DeviceUtils {
         String voldState = SystemProperties.get("vold.decrypt");
         return "1".equals(voldState) || "trigger_restart_min_framework".equals(voldState);
     }
+
+    public static boolean isVoiceCapable(Context context) {
+        final TelephonyManager telephony =
+                (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        return telephony != null && telephony.isVoiceCapable();
+    }
 }
