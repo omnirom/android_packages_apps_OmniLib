@@ -167,13 +167,13 @@ public class OmniUtils {
 
     public static boolean getQSTileLabelHide(Context context) {
         return Settings.System.getIntForUser(context.getContentResolver(),
-                Settings.System.OMNI_QS_TILE_LABEL_HIDE,
+                "qs_tile_label_hide",
                 0, UserHandle.USER_CURRENT) != 0;
     }
 
     public static boolean getQSTileVerticalLayout(Context context, int defaultValue) {
         return Settings.System.getIntForUser(context.getContentResolver(),
-                Settings.System.OMNI_QS_TILE_VERTICAL_LAYOUT,
+                "qs_tile_vertical_layout",
                 defaultValue, UserHandle.USER_CURRENT) != 0;
     }
 }
