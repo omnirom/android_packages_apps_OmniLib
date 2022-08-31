@@ -12,7 +12,7 @@
  * governing permissions and limitations under the License.
  */
 
-package org.omnirom.omnilib.utils;
+package org.omnirom.omnilibcore.utils;
 
 import android.content.Intent;
 import android.hardware.SensorEvent;
