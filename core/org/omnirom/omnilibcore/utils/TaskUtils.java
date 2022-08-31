@@ -13,7 +13,7 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-package org.omnirom.omnilib.utils;
+package org.omnirom.omnilibcore.utils;
 
 import android.app.Activity;
 import android.app.ActivityOptions;

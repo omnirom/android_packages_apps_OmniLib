@@ -15,7 +15,7 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *
 */
-package org.omnirom.omnilib.utils;
+package org.omnirom.omnilibcore.utils;
 
 import android.content.Context;
 import android.content.Intent;

@@ -16,7 +16,7 @@
  *
  */
 
-package org.omnirom.omnilib.utils;
+package org.omnirom.omnilibcore.utils;
 
 import android.content.Context;
 import android.media.AudioAttributes;
