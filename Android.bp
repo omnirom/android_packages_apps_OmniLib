@@ -47,11 +47,21 @@ filegroup {
     path: "src",
 }
 
+// The OmniRom Platform Framework Library
+// ============================================================
+
+omnirom_sdk_LOCAL_STATIC_JAVA_LIBRARIES = [
+    "vendor.lineage.health-V1-java",
+]
+
 // Used by services
 java_library {
     name: "omnirom.internal",
+    static_libs: omnirom_sdk_LOCAL_STATIC_JAVA_LIBRARIES,
     srcs: [
         "src/org/omnirom/omnilib/utils/*.java",
+        "sdk/**/*.java",
+        "sdk/**/I*.aidl",
 
          // For the generated R.java and Manifest.java
         ":omnirom-res{.aapt.srcjar}",
@@ -62,9 +72,12 @@ java_library {
     name: "OmniLib",
     installable: true,
     sdk_version: "core_platform",
+    static_libs: omnirom_sdk_LOCAL_STATIC_JAVA_LIBRARIES,
 
     srcs: [
         "src/**/*.java",
+        "sdk/**/*.java",
+        "sdk/**/I*.aidl",
 
         // For the generated R.java and Manifest.java
         ":omnirom-res{.aapt.srcjar}",
@@ -75,4 +88,9 @@ java_library {
         "OmniPreference",
         "services",
     ],
+
+    // Include aidl files from omnirom.app namespace as well as internal src aidl files
+    aidl: {
+        local_include_dirs: ["sdk/src"],
+    },
 }

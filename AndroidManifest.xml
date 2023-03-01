@@ -24,6 +24,10 @@
     coreApp="true"
     android:sharedUserLabel="@string/omni_system_label">
 
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
+
     <protected-broadcast android:name="com.android.systemui.ACTION_DISMISS_KEYGUARD" />
+    <protected-broadcast android:name="omnirom.platform.intent.action.CHARGING_CONTROL_CANCEL_ONCE" />
 
 </manifest>
