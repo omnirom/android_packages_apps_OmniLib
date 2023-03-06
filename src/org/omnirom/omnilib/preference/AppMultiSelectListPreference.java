@@ -241,5 +241,13 @@ public class AppMultiSelectListPreference extends CustomDialogPreferenceCompat {
         }
         return appIcon;
     }
+
+    public static class AppMultiSelectListPreferenceDialogFragment
+            extends CustomDialogPreferenceCompat.CustomPreferenceDialogFragment {
+        public static CustomDialogPreferenceCompat.CustomPreferenceDialogFragment
+                newInstance(String key) {
+            return CustomDialogPreferenceCompat.CustomPreferenceDialogFragment.newInstance(key);
+        }
+    }
 }
 
