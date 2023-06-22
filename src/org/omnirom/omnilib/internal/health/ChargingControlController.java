@@ -398,6 +398,8 @@ public class ChargingControlController extends OmniRomHealthFeature {
             return null;
         }
 
+        Log.i(TAG, "Target time is " + msToString(targetTime));
+
         return new ChargeTime(startTime, targetTime);
     }
 
@@ -583,6 +585,7 @@ public class ChargingControlController extends OmniRomHealthFeature {
         if (!mConfigEnabled || t == null || mIsControlCancelledOnce) {
             deadline = -1;
             targetTime = 0;
+            Log.i(TAG, "Canceling charge deadline");
         } else {
             if (t.getTargetTime() == mSavedTargetTime) {
                 return;
@@ -590,13 +593,16 @@ public class ChargingControlController extends OmniRomHealthFeature {
             targetTime = t.getTargetTime();
             final long currentTime = System.currentTimeMillis();
             deadline = (targetTime - currentTime) / 1000;
+            Log.i(TAG, "Setting charge deadline: Current time: " + msToString(currentTime));
+            Log.i(TAG, "Setting charge deadline: Target time: " + msToString(targetTime));
+            Log.i(TAG, "Setting charge deadline: Deadline (seconds): " + deadline);
         }
 
         try {
             mChargingControl.setChargingDeadline(deadline);
             mSavedTargetTime = targetTime;
         } catch (IllegalStateException | RemoteException | UnsupportedOperationException e) {
-            Log.e(TAG, "Failed to set charge deadline");
+            Log.e(TAG, "Failed to set charge deadline", e);
         }
     }
 
