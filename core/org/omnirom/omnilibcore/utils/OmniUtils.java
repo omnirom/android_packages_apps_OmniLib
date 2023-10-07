@@ -19,8 +19,6 @@ package org.omnirom.omnilibcore.utils;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.os.UserHandle;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -32,7 +30,6 @@ import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.SystemClock;
 import android.os.Vibrator;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.InputDevice;
 import android.view.KeyCharacterMap;
@@ -41,13 +38,24 @@ import android.view.IWindowManager;
 import android.view.WindowManagerGlobal;
 
 public class OmniUtils {
-
+    /**
+     * @hide
+     */
     public static final String OMNILIB_PACKAGE_NAME = "org.omnirom.omnilib";
 
+    /**
+     * @hide
+     */
     public static final String ACTION_DISMISS_KEYGUARD = OMNILIB_PACKAGE_NAME +".ACTION_DISMISS_KEYGUARD";
 
+    /**
+     * @hide
+     */
     public static final String DISMISS_KEYGUARD_EXTRA_INTENT = "launch";
 
+    /**
+     * @hide
+     */
     public static void launchKeyguardDismissIntent(Context context, UserHandle user, Intent launchIntent) {
         Intent keyguardIntent = new Intent(ACTION_DISMISS_KEYGUARD);
         keyguardIntent.setPackage(OMNILIB_PACKAGE_NAME);
@@ -55,10 +63,16 @@ public class OmniUtils {
         context.sendBroadcastAsUser(keyguardIntent, user);
     }
 
+    /**
+     * @hide
+     */
     public static void sendKeycode(int keycode) {
         sendKeycode(keycode, false);
     }
 
+    /**
+     * @hide
+     */
     public static void sendKeycode(int keycode, boolean longpress) {
         long when = SystemClock.uptimeMillis();
         final KeyEvent evDown = new KeyEvent(when, when, KeyEvent.ACTION_DOWN, keycode, 0,
@@ -143,25 +157,5 @@ public class OmniUtils {
         Canvas canvas = new Canvas(dest);
         canvas.drawBitmap(source, null, targetRect, null);
         return dest;
-    }
-
-    public static int getQSColumnsCount(Context context, int resourceCount) {
-        final int QS_COLUMNS_MIN = 2;
-        final Resources res = context.getResources();
-        int value = QS_COLUMNS_MIN;
-        if (res.getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-            value = Settings.System.getIntForUser(
-                    context.getContentResolver(), "qs_layout_columns",
-                    resourceCount, UserHandle.USER_CURRENT);
-        } else {
-            value = Settings.System.getIntForUser(
-                    context.getContentResolver(), "qs_layout_columns_landscape",
-                    resourceCount, UserHandle.USER_CURRENT);
-        }
-        return Math.max(QS_COLUMNS_MIN, value);
-    }
-
-    public static int getQuickQSColumnsCount(Context context, int resourceCount) {
-        return getQSColumnsCount(context, resourceCount);
     }
 }
