@@ -1,25 +1,57 @@
-android_library {
-    name: "OmniLib",
-    defaults: [
-        "SettingsLibDefaults",
-        "SettingsLib-search-defaults",
-    ],
-    srcs: [
-        "src/**/*.java",
-    ],
-    required: [
-        "privapp_whitelist_com.android.settings",
-        "settings-platform-compat-config",
-    ],
-    libs: [
-        "androidx.core_core",
-        "androidx.preference_preference",
-    ],
+android_app {
+    name: "omnirom-res",
+    sdk_version: "core_platform",
+    certificate: "platform",
+    manifest: "AndroidManifest.xml",
+
     resource_dirs: ["res"],
+    export_package_resources: true,
+
+    // Disable dexpreopt and verify_uses_libraries check as the app
+    // contains no Java code to be dexpreopted.
+    enforce_uses_libs: false,
+    dex_preopt: {
+        enabled: false,
+    },
+
+    // Soong special-cases omnirom-res to install this alongside
+    // the libraries at /system/framework/omnirom-res.apk.
+
+    // Generate private symbols into the org.omnirom.omnilib.R class
+    // so they are not accessible to 3rd party apps.
+    aaptflags: [
+        "--private-symbols",
+        "org.omnirom.omnilib",
+
+        // Framework doesn't need versioning since it IS the platform.
+        "--no-auto-version",
+
+        // Allow overlay to add resource
+        "--auto-add-overlay",
+
+        // Tell aapt to create "extending (non-application)" resource IDs,
+        // since these resources will be used by many apps.
+        "--allow-reserved-package-id",
+        // Use id 0x3f (one less than app id).
+        "--package-id",
+        "63",
+    ],
 }
 
-android_library {
-    name: "OmniLibCore",
-    platform_apis: true,
-    srcs: ["core/**/*.java"],
+java_library {
+    name: "OmniLib",
+    installable: true,
+    sdk_version: "core_platform",
+
+    srcs: [
+        "src/**/*.java",
+
+        // For the generated R.java and Manifest.java
+        ":omnirom-res{.aapt.srcjar}",
+    ],
+
+    libs: [
+        "framework",
+        "OmniPreference",
+    ],
 }
