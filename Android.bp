@@ -38,6 +38,14 @@ android_app {
     ],
 }
 
+filegroup {
+    name: "omnirom-internal",
+    srcs: [
+        "src/org/omnirom/omnilib/utils/OmniSettings.java",
+    ],
+    path: "src",
+}
+
 java_library {
     name: "OmniLib",
     installable: true,
