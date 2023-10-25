@@ -94,6 +94,17 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
     public static final String OMNI_ENABLE_TASKBAR = "enable_taskbar";
 
     /**
+     * Whether to show arrow keys in navigation bar
+     * @hide
+     */
+    public static final String OMNI_NAVIGATION_BAR_ARROW_KEYS = "navigation_bar_menu_arrow_keys";
+
+    /**
+     * @hide
+     */
+    public static final String OMNI_GESTURE_HANDLE_HIDE = "navbar_gesture_handle_hide";
+
+    /**
      * SettingsBackupAgent will combine its list with this so we dont need
      * to add new things into SettingsProvider SystemSettings
      * @hide
@@ -112,6 +123,8 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
         OMNI_BACK_GESTURE_HEIGHT,
         OMNI_STATUS_BAR_ALARM,
         OMNI_ENABLE_TASKBAR,
+        OMNI_NAVIGATION_BAR_ARROW_KEYS,
+        OMNI_GESTURE_HANDLE_HIDE,
     };
 
     /**
@@ -138,5 +151,7 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
         OMNI_SETTINGS_VALIDATORS.put(OMNI_BACK_GESTURE_HEIGHT, 1);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_STATUS_BAR_ALARM, 0);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_ENABLE_TASKBAR, 0);
+        OMNI_SETTINGS_VALIDATORS.put(OMNI_NAVIGATION_BAR_ARROW_KEYS, 0);
+        OMNI_SETTINGS_VALIDATORS.put(OMNI_GESTURE_HANDLE_HIDE, 0);
     }
 }
