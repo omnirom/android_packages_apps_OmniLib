@@ -121,6 +121,11 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
     public static final String OMNI_USE_OLD_MOBILETYPE = "use_old_mobiletype";
 
     /**
+     * @hide
+     */
+    public static final String OMNI_STATUS_BAR_BT_BATTERY = "status_bar_bt_battery";
+
+    /**
      * SettingsBackupAgent will combine its list with this so we dont need
      * to add new things into SettingsProvider SystemSettings
      * @hide
@@ -143,6 +148,7 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
         OMNI_GESTURE_HANDLE_HIDE,
         OMNI_GESTURE_HANDLE_SMALL,
         OMNI_USE_OLD_MOBILETYPE,
+        OMNI_STATUS_BAR_BT_BATTERY,
     };
 
     /**
@@ -173,5 +179,6 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
         OMNI_SETTINGS_VALIDATORS.put(OMNI_GESTURE_HANDLE_HIDE, 0);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_GESTURE_HANDLE_SMALL, 0);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_USE_OLD_MOBILETYPE, 0);
+        OMNI_SETTINGS_VALIDATORS.put(OMNI_STATUS_BAR_BT_BATTERY, 0);
     }
 }
