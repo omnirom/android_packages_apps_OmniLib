@@ -105,6 +105,12 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
     public static final String OMNI_GESTURE_HANDLE_HIDE = "navbar_gesture_handle_hide";
 
     /**
+     * just for triggering an update - DOES NOT need a backup
+     * @hide
+     */
+    public static final String OMNI_CUSTOM_FP_ICON_UPDATE = "custom_fingerprint_icon_update";
+
+    /**
      * SettingsBackupAgent will combine its list with this so we dont need
      * to add new things into SettingsProvider SystemSettings
      * @hide
