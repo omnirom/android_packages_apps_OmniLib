@@ -20,6 +20,12 @@
     <java-symbol type="anim" name="last_app_in" />
     <java-symbol type="anim" name="last_app_out" />
 
+    <!-- Battery Led -->
+    <java-symbol type="bool" name="config_intrusiveBatteryLed" />
+    <java-symbol type="bool" name="config_multiColorBatteryLed" />
+    <java-symbol type="bool" name="config_FastChargingLedSupported" />
+    <java-symbol type="integer" name="config_notificationsFastBatteryARGB" />
+
     <!-- Device features Support-->
     <java-symbol type="bool" name="config_enableAutoSuspend" />
     <java-symbol type="bool" name="config_proxiSensorWakupCheck" />
