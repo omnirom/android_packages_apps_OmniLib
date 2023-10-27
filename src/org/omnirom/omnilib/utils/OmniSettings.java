@@ -201,6 +201,11 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
     public static final String OMNI_QS_TILE_LABEL_HIDE = "qs_tile_label_hide";
 
     /**
+     * @hide
+     */
+    public static final String OMNI_LOW_BATTERY_BEHAVIOR = "battery_low_behavior";
+
+    /**
      * SettingsBackupAgent will combine its list with this so we dont need
      * to add new things into SettingsProvider SystemSettings
      * @hide
@@ -234,6 +239,7 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
         OMNI_QS_LAYOUT_COLUMNS,
         OMNI_QS_TILE_VERTICAL_LAYOUT,
         OMNI_QS_TILE_LABEL_HIDE,
+        OMNI_LOW_BATTERY_BEHAVIOR,
     };
 
     /**
@@ -277,5 +283,6 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
         OMNI_SETTINGS_VALIDATORS.put(OMNI_QS_LAYOUT_COLUMNS, 1);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_QS_TILE_VERTICAL_LAYOUT, 0);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_QS_TILE_LABEL_HIDE, 0);
+        OMNI_SETTINGS_VALIDATORS.put(OMNI_LOW_BATTERY_BEHAVIOR, 0);
     }
 }
