@@ -218,6 +218,11 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
     public static final String OMNI_DOZE_ON_CHARGE_NOW = "doze_on_charge_now";
 
     /**
+     * @hide
+     */
+    public static final String OMNI_USE_OLD_MOBILETYPE = "use_old_mobiletype";
+
+    /**
      * SettingsBackupAgent will combine its list with this so we dont need
      * to add new things into SettingsProvider SystemSettings
      * @hide
@@ -253,6 +258,7 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
         OMNI_QS_TILE_LABEL_HIDE,
         OMNI_LOW_BATTERY_BEHAVIOR,
         OMNI_DOZE_ON_CHARGE,
+        OMNI_USE_OLD_MOBILETYPE,
     };
 
     /**
@@ -298,5 +304,6 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
         OMNI_SETTINGS_VALIDATORS.put(OMNI_QS_TILE_LABEL_HIDE, 0);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_LOW_BATTERY_BEHAVIOR, 0);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_DOZE_ON_CHARGE, 0);
+        OMNI_SETTINGS_VALIDATORS.put(OMNI_USE_OLD_MOBILETYPE, 0);
     }
 }
