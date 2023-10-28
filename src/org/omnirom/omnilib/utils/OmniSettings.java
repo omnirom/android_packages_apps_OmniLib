@@ -216,6 +216,18 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
     public static final String OMNI_HIDE_ROAMING_ICON = "hide_roaming_icon";
 
     /**
+     * Whether to enable DOZE only when charging
+     * @hide
+     */
+    public static final String OMNI_DOZE_ON_CHARGE = "doze_on_charge";
+
+    /**
+     * hidden stting of the current atate of DOZE only when charging
+     * @hide
+     */
+    public static final String OMNI_DOZE_ON_CHARGE_NOW = "doze_on_charge_now";
+
+    /**
      * SettingsBackupAgent will combine its list with this so we dont need
      * to add new things into SettingsProvider SystemSettings
      * @hide
@@ -252,6 +264,7 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
         OMNI_QS_TILE_LABEL_HIDE,
         OMNI_LOW_BATTERY_BEHAVIOR,
         OMNI_HIDE_ROAMING_ICON,
+        OMNI_DOZE_ON_CHARGE,
     };
 
     /**
@@ -298,5 +311,6 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
         OMNI_SETTINGS_VALIDATORS.put(OMNI_QS_TILE_LABEL_HIDE, 0);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_LOW_BATTERY_BEHAVIOR, 0);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_HIDE_ROAMING_ICON, 0);
+        OMNI_SETTINGS_VALIDATORS.put(OMNI_DOZE_ON_CHARGE, 0);
     }
 }
