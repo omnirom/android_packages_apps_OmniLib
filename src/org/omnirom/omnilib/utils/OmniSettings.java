@@ -181,6 +181,26 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
     public static final String OMNI_FAST_CHARGING_LED_ENABLED = "fast_charging_led_enabled";
 
     /**
+     * @hide
+     */
+    public static final String OMNI_QS_LAYOUT_COLUMNS_LANDSCAPE = "qs_layout_columns_landscape";
+
+    /**
+     * @hide
+     */
+    public static final String OMNI_QS_LAYOUT_COLUMNS = "qs_layout_columns";
+
+    /**
+     * @hide
+     */
+    public static final String OMNI_QS_TILE_VERTICAL_LAYOUT = "qs_tile_vertical_layout";
+
+    /**
+     * @hide
+     */
+    public static final String OMNI_QS_TILE_LABEL_HIDE = "qs_tile_label_hide";
+
+    /**
      * SettingsBackupAgent will combine its list with this so we dont need
      * to add new things into SettingsProvider SystemSettings
      * @hide
@@ -210,6 +230,10 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
         OMNI_BATTERY_LIGHT_FULL_COLOR,
         OMNI_BATTERY_LIGHT_REALLY_FULL_COLOR,
         OMNI_BATTERY_LIGHT_ONLY_FULLY_CHARGED,
+        OMNI_QS_LAYOUT_COLUMNS_LANDSCAPE,
+        OMNI_QS_LAYOUT_COLUMNS,
+        OMNI_QS_TILE_VERTICAL_LAYOUT,
+        OMNI_QS_TILE_LABEL_HIDE,
     };
 
     /**
@@ -249,5 +273,9 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
         OMNI_SETTINGS_VALIDATORS.put(OMNI_FAST_BATTERY_LIGHT_COLOR, 1);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_FAST_CHARGING_LED_ENABLED, 0);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_BATTERY_LIGHT_ONLY_FULLY_CHARGED, 0);
+        OMNI_SETTINGS_VALIDATORS.put(OMNI_QS_LAYOUT_COLUMNS_LANDSCAPE, 1);
+        OMNI_SETTINGS_VALIDATORS.put(OMNI_QS_LAYOUT_COLUMNS, 1);
+        OMNI_SETTINGS_VALIDATORS.put(OMNI_QS_TILE_VERTICAL_LAYOUT, 0);
+        OMNI_SETTINGS_VALIDATORS.put(OMNI_QS_TILE_LABEL_HIDE, 0);
     }
 }
