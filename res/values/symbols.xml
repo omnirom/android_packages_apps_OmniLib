@@ -26,6 +26,10 @@
     <java-symbol type="bool" name="config_FastChargingLedSupported" />
     <java-symbol type="integer" name="config_notificationsFastBatteryARGB" />
 
+     <!-- Colored ls clock -->
+    <java-symbol type="color" name="primary_text_material_light" />
+    <java-symbol type="color" name="primary_text_material_dark" />
+
     <!-- Device features Support-->
     <java-symbol type="bool" name="config_enableAutoSuspend" />
     <java-symbol type="bool" name="config_proxiSensorWakupCheck" />
