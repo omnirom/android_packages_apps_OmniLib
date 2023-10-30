@@ -228,6 +228,16 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
     public static final String OMNI_LOCKSCREEN_CLOCK_COLORED = "lockscreen_clock_colored";
 
     /**
+    * @hide
+    */
+    public static final String OMNI_LOCKSCREEN_ALARM_ENABLED = "lockscreen_alarm_enabled";
+
+    /**
+    * @hide
+    */
+    public static final String OMNI_LOCKSCREEN_DND_ENABLED = "lockscreen_dnd_enabled";
+
+    /**
      * @hide
      * Whether the phone vibrates on call connect
      * @hide
@@ -284,6 +294,8 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
         OMNI_DOZE_ON_CHARGE,
         OMNI_STATUS_BAR_BT_BATTERY,
         OMNI_LOCKSCREEN_CLOCK_COLORED,
+        OMNI_LOCKSCREEN_ALARM_ENABLED,
+        OMNI_LOCKSCREEN_DND_ENABLED,
         OMNI_VIBRATE_ON_CONNECT,
         OMNI_VIBRATE_ON_CALLWAITING,
         OMNI_VIBRATE_ON_DISCONNECT,
@@ -334,6 +346,8 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
         OMNI_SETTINGS_VALIDATORS.put(OMNI_DOZE_ON_CHARGE, 0);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_STATUS_BAR_BT_BATTERY, 0);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_LOCKSCREEN_CLOCK_COLORED, 0);
+        OMNI_SETTINGS_VALIDATORS.put(OMNI_LOCKSCREEN_ALARM_ENABLED, 0);
+        OMNI_SETTINGS_VALIDATORS.put(OMNI_LOCKSCREEN_DND_ENABLED, 0);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_VIBRATE_ON_CONNECT, 0);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_VIBRATE_ON_CALLWAITING, 0);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_VIBRATE_ON_DISCONNECT, 0);
