@@ -223,6 +223,11 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
     public static final String OMNI_STATUS_BAR_BT_BATTERY = "status_bar_bt_battery";
 
     /**
+     * @hide
+     */
+    public static final String OMNI_LOCKSCREEN_CLOCK_COLORED = "lockscreen_clock_colored";
+
+    /**
      * SettingsBackupAgent will combine its list with this so we dont need
      * to add new things into SettingsProvider SystemSettings
      * @hide
@@ -259,6 +264,7 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
         OMNI_LOW_BATTERY_BEHAVIOR,
         OMNI_DOZE_ON_CHARGE,
         OMNI_STATUS_BAR_BT_BATTERY,
+        OMNI_LOCKSCREEN_CLOCK_COLORED,
     };
 
     /**
@@ -305,5 +311,6 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
         OMNI_SETTINGS_VALIDATORS.put(OMNI_LOW_BATTERY_BEHAVIOR, 0);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_DOZE_ON_CHARGE, 0);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_STATUS_BAR_BT_BATTERY, 0);
+        OMNI_SETTINGS_VALIDATORS.put(OMNI_LOCKSCREEN_CLOCK_COLORED, 0);
     }
 }
