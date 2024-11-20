@@ -42,15 +42,15 @@ import android.view.WindowManagerGlobal;
 
 public class OmniUtils {
 
-    public static final String OMNILIB_PACKAGE_NAME = "org.omnirom.omnilib";
+    public static final String SYSTEMUI_PACKAGE_NAME = "com.android.systemui";
 
-    public static final String ACTION_DISMISS_KEYGUARD = OMNILIB_PACKAGE_NAME +".ACTION_DISMISS_KEYGUARD";
+    public static final String ACTION_DISMISS_KEYGUARD = SYSTEMUI_PACKAGE_NAME +".ACTION_DISMISS_KEYGUARD";
 
     public static final String DISMISS_KEYGUARD_EXTRA_INTENT = "launch";
 
     public static void launchKeyguardDismissIntent(Context context, UserHandle user, Intent launchIntent) {
         Intent keyguardIntent = new Intent(ACTION_DISMISS_KEYGUARD);
-        keyguardIntent.setPackage(OMNILIB_PACKAGE_NAME);
+        keyguardIntent.setPackage(SYSTEMUI_PACKAGE_NAME);
         keyguardIntent.putExtra(DISMISS_KEYGUARD_EXTRA_INTENT, launchIntent);
         context.sendBroadcastAsUser(keyguardIntent, user);
     }

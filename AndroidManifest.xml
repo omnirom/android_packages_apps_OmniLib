@@ -24,4 +24,7 @@
     coreApp="true"
     android:sharedUserLabel="@string/omni_system_label">
 
+        <!-- omni additions start -->
+    <protected-broadcast android:name="com.android.systemui.ACTION_DISMISS_KEYGUARD" />
+
 </manifest>
