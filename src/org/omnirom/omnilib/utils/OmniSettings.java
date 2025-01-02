@@ -252,6 +252,34 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
     public static final String OMNI_VIBRATE_ON_DISCONNECT = "vibrate_on_disconnect";
 
     /**
+     * Whether charging control should be enabled.
+     * The value is boolean (1 or 0).
+     */
+    public static final String OMNI_CHARGING_CONTROL_ENABLED = "charging_control_enabled";
+
+    /**
+     * Charging control mode, one of AUTO (1; default), CUSTOM (2), or LIMIT (3).
+     */
+    public static final String OMNI_CHARGING_CONTROL_MODE = "charging_control_mode";
+
+    /**
+     * Time when charging control is automatically activated in CUSTOM mode.
+     * The value is represented as seconds from midnight.
+     */
+    public static final String OMNI_CHARGING_CONTROL_START_TIME = "charging_control_start_time";
+
+    /**
+     * Target time when battery is fully charged in CUSTOM mode.
+     * The value is represented as seconds from midnight.
+     */
+    public static final String OMNI_CHARGING_CONTROL_TARGET_TIME = "charging_control_target_time";
+
+    /**
+     * Limit to stop charging.
+     */
+    public static final String OMNI_CHARGING_CONTROL_LIMIT = "charging_control_charging_limit";
+
+    /**
      * SettingsBackupAgent will combine its list with this so we dont need
      * to add new things into SettingsProvider SystemSettings
      * @hide
@@ -293,6 +321,11 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
         OMNI_VIBRATE_ON_CONNECT,
         OMNI_VIBRATE_ON_CALLWAITING,
         OMNI_VIBRATE_ON_DISCONNECT,
+        OMNI_CHARGING_CONTROL_ENABLED,
+        OMNI_CHARGING_CONTROL_MODE,
+        OMNI_CHARGING_CONTROL_START_TIME,
+        OMNI_CHARGING_CONTROL_TARGET_TIME,
+        OMNI_CHARGING_CONTROL_LIMIT,
     };
 
     /**
@@ -302,6 +335,7 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
      * BOOLEAN_VALIDATOR == 0
      * ANY_INTEGER_VALIDATOR == 1
      * ANY_STRING_VALIDATOR == 2
+     * OMNI_INCLUSIVE_INTEGER_VALIDATOR == 3
      * @hide
      */
     public static final Map<String, Integer> OMNI_SETTINGS_VALIDATORS = new ArrayMap<>();
@@ -344,5 +378,10 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
         OMNI_SETTINGS_VALIDATORS.put(OMNI_VIBRATE_ON_CONNECT, 0);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_VIBRATE_ON_CALLWAITING, 0);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_VIBRATE_ON_DISCONNECT, 0);
+        OMNI_SETTINGS_VALIDATORS.put(OMNI_CHARGING_CONTROL_ENABLED, 0);
+        OMNI_SETTINGS_VALIDATORS.put(OMNI_CHARGING_CONTROL_MODE, 3);
+        OMNI_SETTINGS_VALIDATORS.put(OMNI_CHARGING_CONTROL_START_TIME, 3);
+        OMNI_SETTINGS_VALIDATORS.put(OMNI_CHARGING_CONTROL_TARGET_TIME, 3);
+        OMNI_SETTINGS_VALIDATORS.put(OMNI_CHARGING_CONTROL_LIMIT, 3);
     }
 }
