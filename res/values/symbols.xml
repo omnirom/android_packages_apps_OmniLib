@@ -45,4 +45,9 @@
     <java-symbol name="reboot_system_message" type="string" />
     <java-symbol type="array" name="config_rebootActionsList" />
 
+    <!-- External OmniRom specific core services -->
+    <java-symbol type="array" name="config_externalOmniRomServices" />
+    <!-- OmniRom system server -->
+    <java-symbol type="string" name="config_externalSystemServer" />
+
 </resources>

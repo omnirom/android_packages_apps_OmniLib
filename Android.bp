@@ -61,5 +61,6 @@ java_library {
     libs: [
         "framework",
         "OmniPreference",
+        "services",
     ],
 }

@@ -20,4 +20,12 @@
     <bool name="config_FastChargingLedSupported">false</bool>
     <!-- Default value for led color when fast charging is active -->
     <integer name="config_notificationsFastBatteryARGB">0x0000FF</integer>
+
+    <!-- Defines external services to be started by the OmniRomSystemServer at boot. The service itself
+         should publish as a binder services in its onStart -->
+    <string-array name="config_externalOmniRomServices">
+    </string-array>
+
+    <!-- The LineageSystemServer class that is invoked from Android's SystemServer -->
+    <string name="config_externalSystemServer" translatable="false">org.omnirom.omnilib.internal.OmniRomSystemServer</string>
 </resources>
