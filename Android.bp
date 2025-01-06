@@ -38,12 +38,24 @@ android_app {
     ],
 }
 
+// Used by frameworks
 filegroup {
     name: "omnirom-internal",
     srcs: [
         "src/org/omnirom/omnilib/utils/OmniSettings.java",
     ],
     path: "src",
+}
+
+// Used by services
+java_library {
+    name: "omnirom.internal",
+    srcs: [
+        "src/org/omnirom/omnilib/utils/*.java",
+
+         // For the generated R.java and Manifest.java
+        ":omnirom-res{.aapt.srcjar}",
+    ],
 }
 
 java_library {
