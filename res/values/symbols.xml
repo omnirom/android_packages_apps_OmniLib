@@ -50,6 +50,9 @@
     <!-- OmniRom system server -->
     <java-symbol type="string" name="config_externalSystemServer" />
 
+    <!-- OmniRom Rom build type Microg -->
+    <java-symbol type="bool" name="config_useMicroGBuildType" />
+
     <!-- Health interface -->
     <java-symbol type="bool" name="config_chargingControlEnabled" />
     <java-symbol type="bool" name="config_chargingControlToggleSetAlways" />

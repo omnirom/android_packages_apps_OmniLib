@@ -62,4 +62,8 @@
          will be charged between (limit - val) and limit. -->
     <integer name="config_chargingControlBatteryRechargeMargin">10</integer>
 
+    <!-- This build type is true when ROM_BUILDTYPE is Microg by
+        installing the MicrogOmniLibOverlay package -->
+    <bool name="config_useMicroGBuildType">false</bool>
+
 </resources>
