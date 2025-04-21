@@ -174,6 +174,12 @@ public class ChargingControlController extends OmniRomHealthFeature {
             if (mDeadline.isSupported()) {
                 return mDeadline;
             }
+            if (mLimit.isSupported()) {
+                return mLimit;
+            }
+            if (mToggle.isSupported()) {
+                return mToggle;
+            }
         }
 
         return null;
