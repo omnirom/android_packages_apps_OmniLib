@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD:sdk/src/omnirom/health/HealthInterface.java
  * Copyright (C) 2023 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,6 +13,10 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+=======
+ * SPDX-FileCopyrightText: 2023-2025 The LineageOS Project
+ * SPDX-License-Identifier: Apache-2.0
+>>>>>>> e3790a355b (sdk: Add lineagehealth IFastCharge interface support):sdk/src/java/lineageos/health/HealthInterface.java
  */
 
 package omnirom.health;
@@ -293,5 +298,66 @@ public class HealthInterface {
         } catch (RemoteException e) {
             return false;
         }
+    }
+
+    /**
+     * Returns whether fast charge is supported
+     *
+     * @return true if fast charge is supported
+     */
+    public boolean isFastChargeSupported() {
+        try {
+            return checkService() && sService.isFastChargeSupported();
+        } catch (RemoteException e) {
+            Log.e(TAG, e.getLocalizedMessage(), e);
+        }
+
+        return false;
+    }
+
+    /**
+     * Gets supported fast charge mode
+     *
+     * @return true supported fast charge modes
+     */
+    public int[] getSupportedFastChargeModes() {
+        try {
+            return checkService() ? sService.getSupportedFastChargeModes() : new int[0];
+        } catch (RemoteException e) {
+            Log.e(TAG, e.getLocalizedMessage(), e);
+        }
+
+        return new int[0];
+    }
+
+    /**
+     * Gets current fast charge mode
+     *
+     * @return true current fast charge mode
+     */
+    public int getFastChargeMode() {
+        try {
+            return checkService() ? sService.getFastChargeMode() : 0;
+        } catch (RemoteException e) {
+            Log.e(TAG, e.getLocalizedMessage(), e);
+        }
+
+        return 0;
+    }
+
+    /**
+     * Sets selected fast charge mode
+     *
+     * @param mode the fast charge mode
+     * @return true if fast charge was set
+     */
+    public boolean setFastChargeMode(int mode) {
+        try {
+            return checkService() && sService.setFastChargeMode(mode);
+        } catch (RemoteException e) {
+            Log.e(TAG, e.getLocalizedMessage(), e);
+        }
+
+        return false;
     }
 }

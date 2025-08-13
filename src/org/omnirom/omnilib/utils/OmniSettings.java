@@ -21,6 +21,8 @@ import android.util.ArrayMap;
 
 import java.util.Map;
 
+import vendor.lineage.health.FastChargeMode;
+
 public class OmniSettings extends NameValueTable implements BaseColumns {
 
     /**
@@ -233,7 +235,6 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
     public static final String OMNI_LOCKSCREEN_DND_ENABLED = "lockscreen_dnd_enabled";
 
     /**
-     * @hide
      * Whether the phone vibrates on call connect
      * @hide
      */
@@ -254,30 +255,41 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
     /**
      * Whether charging control should be enabled.
      * The value is boolean (1 or 0).
+     * @hide
      */
     public static final String OMNI_CHARGING_CONTROL_ENABLED = "charging_control_enabled";
 
     /**
      * Charging control mode, one of AUTO (1; default), CUSTOM (2), or LIMIT (3).
+     * @hide
      */
     public static final String OMNI_CHARGING_CONTROL_MODE = "charging_control_mode";
 
     /**
      * Time when charging control is automatically activated in CUSTOM mode.
      * The value is represented as seconds from midnight.
+     * @hide
      */
     public static final String OMNI_CHARGING_CONTROL_START_TIME = "charging_control_start_time";
 
     /**
      * Target time when battery is fully charged in CUSTOM mode.
      * The value is represented as seconds from midnight.
+     * @hide
      */
     public static final String OMNI_CHARGING_CONTROL_TARGET_TIME = "charging_control_target_time";
 
     /**
      * Limit to stop charging.
+     * @hide
      */
     public static final String OMNI_CHARGING_CONTROL_LIMIT = "charging_control_charging_limit";
+
+    /**
+     * Fast charging mode
+     * @hide
+     */
+    public static final String OMNI_FAST_CHARGE_MODE = "fast_charge_mode";
 
     /**
      * SettingsBackupAgent will combine its list with this so we dont need
@@ -326,6 +338,7 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
         OMNI_CHARGING_CONTROL_START_TIME,
         OMNI_CHARGING_CONTROL_TARGET_TIME,
         OMNI_CHARGING_CONTROL_LIMIT,
+        OMNI_FAST_CHARGE_MODE,
     };
 
     /**
@@ -338,6 +351,7 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
      * OMNI_CHARGING_CONTROL_LIMIT_VALIDATOR == 3
      * OMNI_CHARGING_CONTROL_MODE_VALIDATOR == 4
      * OMNI_CHARGING_CONTROL_TIME_VALIDATOR == 5
+     * OMNI_FAST_CHARGE_MODE == 6
      * @hide
      */
     public static final Map<String, Integer> OMNI_SETTINGS_VALIDATORS = new ArrayMap<>();
@@ -385,5 +399,6 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
         OMNI_SETTINGS_VALIDATORS.put(OMNI_CHARGING_CONTROL_MODE, 4);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_CHARGING_CONTROL_START_TIME, 5);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_CHARGING_CONTROL_TARGET_TIME, 5);
+        OMNI_SETTINGS_VALIDATORS.put(OMNI_FAST_CHARGE_MODE, 6);
     }
 }
