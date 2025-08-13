@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2023 The LineageOS Project
+ * SPDX-FileCopyrightText: 2023-2025 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,4 +37,9 @@ interface IHealthInterface {
 
     boolean resetChargingControl();
     boolean allowFineGrainedSettings();
+
+    boolean isFastChargeSupported();
+    int[] getSupportedFastChargeModes();
+    int getFastChargeMode();
+    boolean setFastChargeMode(int mode);
 }
