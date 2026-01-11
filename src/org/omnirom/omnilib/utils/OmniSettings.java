@@ -178,26 +178,6 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
     /**
      * @hide
      */
-    public static final String OMNI_QS_LAYOUT_COLUMNS_LANDSCAPE = "qs_layout_columns_landscape";
-
-    /**
-     * @hide
-     */
-    public static final String OMNI_QS_LAYOUT_COLUMNS = "qs_layout_columns";
-
-    /**
-     * @hide
-     */
-    public static final String OMNI_QS_TILE_VERTICAL_LAYOUT = "qs_tile_vertical_layout";
-
-    /**
-     * @hide
-     */
-    public static final String OMNI_QS_TILE_LABEL_HIDE = "qs_tile_label_hide";
-
-    /**
-     * @hide
-     */
     public static final String OMNI_LOW_BATTERY_BEHAVIOR = "battery_low_behavior";
 
     /**
@@ -318,10 +298,6 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
         OMNI_BATTERY_LIGHT_FULL_COLOR,
         OMNI_BATTERY_LIGHT_REALLY_FULL_COLOR,
         OMNI_BATTERY_LIGHT_ONLY_FULLY_CHARGED,
-        OMNI_QS_LAYOUT_COLUMNS_LANDSCAPE,
-        OMNI_QS_LAYOUT_COLUMNS,
-        OMNI_QS_TILE_VERTICAL_LAYOUT,
-        OMNI_QS_TILE_LABEL_HIDE,
         OMNI_LOW_BATTERY_BEHAVIOR,
         OMNI_DOZE_ON_CHARGE,
         OMNI_STATUS_BAR_BT_BATTERY,
@@ -379,10 +355,6 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
         OMNI_SETTINGS_VALIDATORS.put(OMNI_FAST_BATTERY_LIGHT_COLOR, 1);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_FAST_CHARGING_LED_ENABLED, 0);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_BATTERY_LIGHT_ONLY_FULLY_CHARGED, 0);
-        OMNI_SETTINGS_VALIDATORS.put(OMNI_QS_LAYOUT_COLUMNS_LANDSCAPE, 1);
-        OMNI_SETTINGS_VALIDATORS.put(OMNI_QS_LAYOUT_COLUMNS, 1);
-        OMNI_SETTINGS_VALIDATORS.put(OMNI_QS_TILE_VERTICAL_LAYOUT, 0);
-        OMNI_SETTINGS_VALIDATORS.put(OMNI_QS_TILE_LABEL_HIDE, 0);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_LOW_BATTERY_BEHAVIOR, 0);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_DOZE_ON_CHARGE, 0);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_STATUS_BAR_BT_BATTERY, 0);
