@@ -26,6 +26,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.RectF;
 import android.hardware.input.InputManager;
+import android.hardware.input.InputManagerGlobal;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.PowerManager;
@@ -89,14 +90,14 @@ public class OmniUtils {
         handler.post(new Runnable() {
             @Override
             public void run() {
-                InputManager.getInstance().injectInputEvent(evDown,
+                InputManagerGlobal.getInstance().injectInputEvent(evDown,
                         InputManager.INJECT_INPUT_EVENT_MODE_ASYNC);
             }
         });
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                InputManager.getInstance().injectInputEvent(evUp,
+                InputManagerGlobal.getInstance().injectInputEvent(evUp,
                         InputManager.INJECT_INPUT_EVENT_MODE_ASYNC);
             }
         }, longpress ? 750 : 20);
