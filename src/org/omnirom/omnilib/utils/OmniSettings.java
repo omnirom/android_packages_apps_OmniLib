@@ -67,12 +67,6 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
     /**
      * @hide
      */
-    public static final String OMNI_SHOW_BATTERY_IMAGE =
-        "show_battery_image";
-
-    /**
-     * @hide
-     */
     public static final String OMNI_LOCKSCREEN_WEATHER_ENABLED = "lockscreen_weather_enabled";
 
     /** @hide */
@@ -282,7 +276,6 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
         OMNI_DEVICE_FEATURE_SETTINGS,
         OMNI_LONG_PRESS_POWER_TORCH,
         OMNI_ADVANCED_REBOOT,
-        OMNI_SHOW_BATTERY_IMAGE,
         OMNI_LOCKSCREEN_WEATHER_ENABLED,
         OMNI_BACK_GESTURE_HEIGHT,
         OMNI_STATUS_BAR_ALARM,
@@ -337,7 +330,6 @@ public class OmniSettings extends NameValueTable implements BaseColumns {
         OMNI_SETTINGS_VALIDATORS.put(OMNI_DEVICE_FEATURE_SETTINGS, 2);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_LONG_PRESS_POWER_TORCH, 0);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_ADVANCED_REBOOT, 0);
-        OMNI_SETTINGS_VALIDATORS.put(OMNI_SHOW_BATTERY_IMAGE, 0);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_LOCKSCREEN_WEATHER_ENABLED, 0);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_BACK_GESTURE_HEIGHT, 1);
         OMNI_SETTINGS_VALIDATORS.put(OMNI_STATUS_BAR_ALARM, 0);
